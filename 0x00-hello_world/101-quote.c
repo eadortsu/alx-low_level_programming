@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <iostream>
+using namespace std;
 /**
  * main - Entry point
  *
@@ -7,7 +8,6 @@
  */
 int main(void)
 {
-	putchar(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
-
-	return (1);
+       cout << "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+       return (1);
 }
