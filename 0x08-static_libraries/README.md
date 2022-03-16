@@ -8,7 +8,7 @@ What you should learn from this project:
 
 ---
 
-### [0. A library is not a luxury but one of the necessities of life](./holberton.h)
+### [0. A library is not a luxury but one of the necessities of life](./main.h)
 * Create the static library libholberton.a containing all the functions listed
 
 ### [1. Without libraries what have we? We have no past and no future	](./create_static_lib.sh)
