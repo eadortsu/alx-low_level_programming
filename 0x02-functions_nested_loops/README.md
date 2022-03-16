@@ -13,7 +13,7 @@ What you should learn from this project:
 
 ---
 
-### [0. _putchar](./0-holberton.c)
+### [0. _putchar](./0-putchar.c)
 * Write a program that prints Holberton, followed by a new line.
 
 ### [1. I sometimes suffer from insomnia. And when I can't fall asleep, I play what I call the alphabet game](./1-alphabet.c)
