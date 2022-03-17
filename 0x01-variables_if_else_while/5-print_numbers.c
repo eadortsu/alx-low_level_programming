@@ -1,19 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+ * main - prints base10 numbers from 0-9,
+ * Return:0 if successful,
+ * otherwise returns non-zero
+*/
+
 int main(void)
 {
-	int i;
+int num = 0;
+while (num < 10)
+{
+printf("%d", num);
+num++;
+}
+printf("\n");
 
-	for (i = 0; i < 10; i++)
-	{
-		printf("%d", i);
-		}
-		printf("\n");
-	return (0);
+return (0);
 }

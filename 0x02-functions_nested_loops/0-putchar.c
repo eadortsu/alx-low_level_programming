@@ -1,19 +1,24 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+ * main - prints _putchar, followed by a new line.
+ * Return: 0 if succesful, otherwise non-zero
+*/
 int main(void)
 {
-	char *sh = "_putchar";
+char word[] = "_putchar";
+int length = 0;
+int n;
 
-	while (*sh)
-	{
-		_putchar(*sh);
-		sh++;
-	}
-	_putchar('\n');
+/* Calculate length of the array ( Number of elements) */
+length  = sizeof(word) / sizeof(char);
 
-	return (0);
+for (n = 0; n < length; n++)
+{
+_putchar(word[n]);
+}
+_putchar('\n');
+
+return (0);
 }
