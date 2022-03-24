@@ -1,22 +1,33 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* *_strcat - function that concatenates two strings
-* @dest: character pointer variable
-* @src: character pointer variable
-* Return: pointer to the result sting dest
-*/
+ * *_strcat - function commute srtings
+ * @dest: param pointer to a char
+ * @src: param pointer to a char
+ * Return: return value of dest
+ */
+
 char *_strcat(char *dest, char *src)
 {
-int i, j = 0;
+	int i;
+	int j;
 
-for (i = 0;dest[i] != '\0'; i++);
-while (src[j] != '\0')
-{
-dest[i + j] = src[j];
-j++;
-}
+	i = 0;
+	j = 0;
 
-return (dest);
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+
+	dest[i] = '\0';
+	return (dest);
 }
 
