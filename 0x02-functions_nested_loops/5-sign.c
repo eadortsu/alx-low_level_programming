@@ -1,26 +1,31 @@
-#include "main.h"
-#include <stdio.h>
+#include "holberton.h"
 
 /**
- * print_sign- prints the sign of a number
- * Return: 1 greater than 0, 0 is zero, -1 less than zero
+ * print_sign - Function
+ * @n: Entry variable
+ * Return: rtn value
  */
 int print_sign(int n)
 {
-if (n > 0)
-{
-_putchar(43);
-return (1);
-}
-else if (n < 0)
-{
-_putchar(48);
-return (-1);
-}
-else
-{
-_putchar(45);
-return (0);
-}
+	int rtn;
 
+	if (n == 0)
+	{
+		_putchar('0');
+		rtn = 0;
+	}
+	else
+	{
+		if (n > 0)
+		{
+			_putchar('+');
+			rtn = 1;
+		}
+		else
+		{
+			_putchar('-');
+			rtn = -1;
+		}
+	}
+	return (rtn);
 }

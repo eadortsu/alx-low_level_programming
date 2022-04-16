@@ -1,18 +1,19 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* _strcmp - function that compares two strings
-* @s1: character pointer variable
-* @s2: character pointer variable
-* Return: positive, negative or zero integer
-*/
-
+ * _strcmp -entry point
+ * @s1: entry pointer
+ * @s2: entry pointer
+ * Return: res wiht bigger ASCII
+ */
 int _strcmp(char *s1, char *s2)
 {
-int i;
+	int i, res;
 
-for (i = 0; s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i]; i++)
-;
+	res = 0;
 
-return (s1[i] - s2[i]);
+	for (i = 0; s1[i] != '\0' && res == 0; i++)
+		res = s1[i] - s2[i];
+
+	return (res);
 }

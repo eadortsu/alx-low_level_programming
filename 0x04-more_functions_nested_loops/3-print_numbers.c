@@ -1,17 +1,17 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* print_numbers - prints the numbers, from 0 to 9,
-* followed by a new line.
-*/
+ * print_numbers - Entry point
+ *
+ */
 void print_numbers(void)
 {
-int a = 48;
+	/* @i: Incremment ASCII charanter */
+	char i;
 
-while (a < 58)
-{
-_putchar(a);
-a++;
-}
-_putchar('\n');
+	for (i = '0'; i <= '9'; i++)
+	{
+		_putchar(i);
+	}
+	_putchar('\n');
 }

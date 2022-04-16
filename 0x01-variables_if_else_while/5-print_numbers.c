@@ -1,20 +1,24 @@
 #include <stdio.h>
 
 /**
- * main - prints base10 numbers from 0-9,
- * Return:0 if successful,
- * otherwise returns non-zero
-*/
-
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-int num = 0;
-while (num < 10)
+int n = 0;
+while (n <= 10)
 {
-printf("%d", num);
-num++;
-}
+if (n == 10)
+{
 printf("\n");
-
+}
+else
+{
+printf("%d", n);
+}
+n++;
+}
 return (0);
 }

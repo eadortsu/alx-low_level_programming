@@ -1,37 +1,44 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* append_text_to_file - appends text at the end of a file
-* @filename: name of the file
-* @text_content: text to append
-* Return: 1 on success and -1 on failure
-* Do not create the file if it does not exist,
-* If filename is NULL return -1,
-* text_content is NULL, do not add anything to the file.
-* Return 1 if the file exists and -1 if the file does not exist
-*
-*/
-
+ * append_text_to_file - entry point
+ * @filename: name of file
+ * @text_content: text to add
+ * Return: Always 1 (Success)
+ */
 int append_text_to_file(const char *filename, char *text_content)
 {
-int op, wr, len = 0;
+	int fd, len = 0;
 
-if (filename == NULL)
-return (-1);
+	if (filename == NULL)
+		return (-1);
 
-if (text_content != NULL)
-{
-for (len = 0; text_content[len];)
-len++;
+	fd = open(filename, O_RDWR | O_APPEND);
+
+	if (fd == -1)
+		return (-1);
+
+	if (text_content != NULL)
+	{
+		len = _strlen(text_content);
+		write(fd, text_content, len);
+	}
+	else
+		write(fd, "", 0);
+
+	return (1);
 }
+/**
+ * _strlen - entry point
+ * @str: string to count
+ * Return: Number of characters
+ */
+int _strlen(char *str)
+{
+	int i = 0;
 
-op = open(filename, O_APPEND | O_WRONLY);
-wr = write(op, text_content, len);
+	while (str[i])
+		i++;
 
-if (op == -1 || wr == -1)
-return (-1);
-
-close(op);
-
-return (1);
+	return (i);
 }

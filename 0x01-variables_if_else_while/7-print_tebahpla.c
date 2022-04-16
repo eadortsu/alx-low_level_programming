@@ -1,21 +1,17 @@
 #include <stdio.h>
 
 /**
- * main-prints the lowercase alphabet in reverse,
- * followed by a new line,
- * only using the putchar function
- * Return:0 if successful
- * otherwise returns non-zero
-*/
-
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-char rletter;
-for (rletter = 'z'; rletter >= 'a'; rletter--)
+int a;
+for (a = 122; a > 96; a--)
 {
-putchar(rletter);
+putchar(a);
 }
 putchar('\n');
-
 return (0);
 }

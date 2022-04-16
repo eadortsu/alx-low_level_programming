@@ -1,2 +1,1 @@
-# Ox00-hello_world
-Project on the compliling process of a C file (Preprocessing, compilation, assembly, and linking)
+# 0x00-hello_worl

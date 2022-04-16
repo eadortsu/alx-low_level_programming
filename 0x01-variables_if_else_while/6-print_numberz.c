@@ -1,21 +1,17 @@
 #include <stdio.h>
 
 /**
- * main-prints base10 numbers from 0-9,
- * only using the putchar function
- * Return:0 if successful
- * otherwise returns non-zero
-*/
-
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-int num = 48;
-while (num < 58)
+int n;
+for (n = 48; n < 58; n++)
 {
-putchar(num);
-num++;
+putchar(n);
 }
 putchar('\n');
-
 return (0);
 }

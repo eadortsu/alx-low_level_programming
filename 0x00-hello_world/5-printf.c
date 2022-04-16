@@ -1,11 +1,12 @@
-#include<stdio.h>
+#include <stdio.h>
+
 /**
- * main - prints phrase with proper grammar, but the outcome is a piece of art,
- * Return: 0 if exit is successful, otherwise returns non-zero
-*/
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-printf("%s\n", "with proper grammar, but the outcome is a piece of art,");
-/* returns 0 if successful, otherwise non-zero */
+printf("with proper grammar, but the outcome is a piece of art,\n");
 return (0);
 }

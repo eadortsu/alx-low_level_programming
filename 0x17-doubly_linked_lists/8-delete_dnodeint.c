@@ -1,41 +1,40 @@
 #include "lists.h"
 
 /**
-* delete_dnodeint_at_index - Deletes a node at a given index.
-* @head: A pointer to the head of the dlistint_t.
-* @index: The index of the node to delete.
-*
-* Return: - 1 on success,
-*         Otherwise -1
-*
-*/
+ * delete_dnodeint_at_index - entry point
+ * @head: list main
+ * @index: position of element to delete
+ * Return: list modified
+ */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-dlistint_t *tmp = *head;
+	unsigned int i = 0;
+	dlistint_t *curr = (*head);
 
-if (*head == NULL)
-return (-1);
-
-for (; index != 0; index--)
-{
-if (tmp == NULL)
-return (-1);
-tmp = tmp->next;
-}
-
-if (tmp == *head)
-{
-*head = tmp->next;
-if (*head != NULL)
-(*head)->prev = NULL;
-}
-else
-{
-tmp->prev->next = tmp->next;
-if (tmp->next != NULL)
-tmp->next->prev = tmp->prev;
-}
-
-free(tmp);
-return (1);
+	if ((*head) == NULL)
+		return (-1);
+	if (index == 0)
+	{
+		if (curr->next != NULL)
+		{
+			(*head) = (*head)->next;
+			curr->next->prev = NULL;
+		}
+		else
+			(*head) = NULL;
+	}
+	else if (curr->next != NULL)
+	{
+		for (i = 0; curr != NULL && i < index; i++)
+			curr  = curr->next;
+		curr->prev->next = curr->next;
+		curr->next->prev = curr->prev;
+	}
+	else
+	{
+		curr = curr->prev;
+		curr->prev->next = NULL;
+	}
+	free(curr);
+	return (1);
 }

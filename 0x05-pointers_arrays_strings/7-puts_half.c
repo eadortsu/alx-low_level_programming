@@ -1,25 +1,28 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* puts_half - prints half of a string
-* followed by a new line
-* @str: a string pointer
-* Return: null
-*/
+ * puts_half - Entry point
+ * @str: Entry pointer, store a string.
+ */
 
 void puts_half(char *str)
 {
-int count, len = 0;
+	int i = 0, n = 0;
 
-while (*(str + len))
-len++;
-count = len / 2;
-if (len % 2)
-count += 1;
-while (count < len)
-{
-_putchar(*(str + count));
-count++;
-}
-_putchar('\n');
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+
+	n = (i - 1) / 2;
+	i = 0;
+
+	while (str[i] != '\0')
+	{
+		if (i > n)
+			_putchar(str[i]);
+		i++;
+	}
+
+	_putchar('\n');
 }

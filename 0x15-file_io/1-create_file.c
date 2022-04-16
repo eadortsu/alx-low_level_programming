@@ -1,34 +1,48 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* create_file - function that creates a file
-* @filename: name of the file to create
-* @text_content: NULL terminated string to write to the file
-* Returns: 1 on success, -1 on failure, if filename is NULL return -1,
-*          if text_content is NULL create an empty file
-*/
-
+ * create_file - entry point
+ * @filename: name of file
+ * @text_content: content
+ * Return: Always 1 (Success)
+ */
 int create_file(const char *filename, char *text_content)
 {
-int op, wr, len = 0;
+	int fd, len = 0;
 
-if (filename == NULL)
-return(-1);
+	if (filename ==  NULL)
+		return (-1);
 
-if (text_content == NULL)
-{
-for(len = 0; text_content[len];)
-len ++;
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+
+	if (fd == -1)
+	{
+		return (-1);
+	}
+
+	if (text_content != NULL)
+	{
+		len = _strlen(text_content);
+		write(fd, text_content, len);
+	}
+	else
+		write(fd, text_content, 0);
+
+	close(fd);
+
+	return (1);
 }
+/**
+ * _strlen - entry point
+ * @str: string
+ * Return:  length of string
+ */
+int _strlen(char *str)
+{
+	int i = 0;
 
-op = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-wr = write(op, text_content, len);
+	while (str[i])
+		i++;
 
-if(op == -1 || wr == -1)
-return(-1);
-
-close(op);
-
-return(1);
-
+	return (i);
 }

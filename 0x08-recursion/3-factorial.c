@@ -1,16 +1,19 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* factorial - returns the factorial of a given number
-* @n: integer number
-* Return: the factorial of a number
-*/
+ * factorial - entry point
+ * @n: entry variable
+ * Return: 0
+ */
 int factorial(int n)
 {
-if (n == 1 || n == 0)
-return (1);
-else if (n < 0)
-return (-1);
-else
-return (n * factorial(n - 1));
+	if (n < 0)
+	{
+		return (-1);
+	}
+	if (n == 1 || n == 0)
+	{
+		return (1);
+	}
+	return (n * factorial(n - 1));
 }

@@ -1,1 +1,1 @@
-This is a readme file for argc and argv
+# 0x0A. C - argc, argv

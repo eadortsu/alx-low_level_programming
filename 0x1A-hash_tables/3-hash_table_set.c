@@ -1,76 +1,100 @@
 #include "hash_tables.h"
 
 /**
-* make_hash_node - creates a new hash node
-* @key: key of the node
-* @value: value of the node
-*
-* Return: the new node, or NULL on failure
-*/
-hash_node_t *make_hash_node(const char *key, const char *value)
+ * s_collision - searching collision
+ * @ht:		hash table
+ * @key:	string key
+ * @value:	string value
+ * @idx:	index
+ * idx:	index
+ * Return: O if is is wrong or 1 if ist is success
+ */
+int s_collision(hash_table_t *ht, char *key, char *value, int idx)
 {
-hash_node_t *node;
+	hash_node_t *tmp;
 
-node = malloc(sizeof(hash_node_t));
-if (node == NULL)
-return (NULL);
-node->key = strdup(key);
-if (node->key == NULL)
-{
-free(node);
-return (NULL);
-}
-node->value = strdup(value);
-if (node->value == NULL)
-{
-free(node->key);
-free(node);
-return (NULL);
-}
+	tmp = ht->array[idx];
 
-node->next = NULL;
-return (node);
-}
+	while (tmp)
+	{
+		if (strcmp(key, tmp->key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			if (tmp->value == NULL)
+				return (1);
 
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}
 /**
-* hash_table_set - adds an element to the hash table
-* @ht: the hash table you want to add or update the key/value to
-* @key: the key. Cannot be empty
-* @value: value associated with the key. must be duplicated.
-*         can be an empty string
-*
-* Return: 1 if it succeeded, 0 otherwise
-*/
+ * new_node - insert node
+ * @key:	string key
+ * @value:	string value
+ * Return: new node
+ */
+hash_node_t *new_node(const char *key, const char *value)
+{
+	hash_node_t *new;
+
+	new = (hash_node_t *)malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->key = strdup(key);
+	if (new->key == NULL)
+		return (NULL);
+
+	new->value = strdup(value);
+	if (new->value == NULL)
+	{
+		free(new->key);
+		return (NULL);
+	}
+	new->next = NULL;
+
+	return (new);
+}
+/**
+ * hash_table_set - insert elements to the hash table
+ * @ht:	hash table
+ * @key:	string key
+ * @value:  string value
+ * Return:	0 if fail or 1 if success
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-unsigned long int index;
-hash_node_t *hash_node, *temp;
-char *new_value;
+	hash_node_t *new, *temp;
+	int idx, n_node;
 
-if (ht == NULL || ht->array == NULL || ht->size == 0
-|| key == NULL || strlen(key) == 0 || value == NULL)
-return (0);
+	if (ht == NULL || key == NULL || value == NULL)
+		return (0);
 
-index = key_index((const unsigned char *)key, ht->size);
-temp = ht->array[index];
-while (temp != NULL)
-{
-if (strcmp(temp->key, key) == 0)
-{
-new_value = strdup(value);
-if (new_value == NULL)
-return (0);
-free(temp->value);
-temp->value = new_value;
-return (1);
-}
-temp = temp->next;
-}
+	idx = key_index((const unsigned char *)key, ht->size);
 
-hash_node = make_hash_node(key, value);
-if (hash_node == NULL)
-return (0);
-hash_node->next = ht->array[index];
-ht->array[index] = hash_node;
-return (1);
+	if (ht->array[idx] != NULL)
+	{
+		n_node = s_collision(ht, (char *)key, (char *)value, idx);
+		if (n_node == 1)
+			return (1);
+	}
+
+	new = new_node(key, value);
+	if (new == NULL)
+		return (0);
+
+	if (ht->array[idx] == NULL)
+	{
+		ht->array[idx] = new;
+		return (1);
+	}
+
+	temp = ht->array[idx];
+	ht->array[idx] = new;
+	new->next = temp;
+
+	return (1);
 }

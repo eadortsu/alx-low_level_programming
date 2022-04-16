@@ -1,41 +1,36 @@
-#include "main.h"
-#include <stdlib.h>
-
-
+#include "holberton.h"
 /**
-* read_textfile - function that reads a text file and prints it to the POSIX standard output
-* @filename: pointer that points to the name of the file
-* @letters: number of letters to be read and printed
-* Return: if the file can not be opened or read, return 0
-*         if filename is NULL return 0,
-*         if write fails or does not write the expected amount of bytes, return 0
-*/
+ * read_textfile - entry point
+ * @filename: name of file
+ * @letters: number of letters to print
+ * Return: number of letters to read
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-ssize_t op, rd, wr;
-char *buff;
+	char *buf;
+	int fd, w, r;
 
-if (filename == NULL)
-return(0);
+	buf = (char *) malloc(letters * sizeof(char));
 
-buff = malloc(sizeof(char) * letters);
+	if (filename == NULL)
+		return (0);
 
-if (buff == NULL)
-return(0);
+	fd = open(filename, O_RDONLY);
 
-op = open(filename, O_RDONLY);
-rd = read(op, buff, letters);
-wr = write(STDOUT_FILENO, buff, rd);
+	if (fd == -1)
+		return (0);
 
-if (op == -1 || rd == -1 || wr == -1 || wr != rd)
-{
-free(buff);
-return(0);
-}
+	r = read(fd, buf, letters);
+	buf[letters] = '\0';
+	if (r == -1)
+		return (0);
 
-free(buff);
-close(op);
+	w = write(STDOUT_FILENO, buf, r);
+	if (w == -1)
+		return (0);
 
-return(wr);
+	close(fd);
+	free(buf);
 
+	return (w);
 }

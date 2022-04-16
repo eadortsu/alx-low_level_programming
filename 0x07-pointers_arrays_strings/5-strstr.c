@@ -1,33 +1,24 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* _strstr - locates a substring
-* @haystack: string to search in
-* @needle: substring to search
-* Return: pointer to the beginning of
-* the located substring, or NULL if the substring is not found.
-*/
-
+ * _strstr - entry point
+ * @haystack: entry pointer
+ * @needle: enrty pointer
+ * Return: NULL
+ */
 char *_strstr(char *haystack, char *needle)
 {
-while (*haystack)
-{
-char *string = haystack;
-char *substring = needle;
+	int i = 0, j = 0;
 
-/* if the first character of the substring match, check entire string*/
-while (*haystack && *substring && *haystack == *substring)
-{
-haystack++;
-substring++;
-}
-/* if complete sub-string match, return starting address */
-if (!*substring)
-return (string);
-
-/* increment main string */
-haystack = string + 1;
-}
-
-return ('\0');
+	while (haystack[i] != '\0')
+	{
+		if (haystack[i] == needle[j] && haystack[i + 1] == needle[i + 1])
+		{
+			if (haystack[i] != ',' || haystack[i] != ' ')
+				return (haystack + i);
+		}
+		j++;
+		i++;
+	}
+	return ('\0');
 }

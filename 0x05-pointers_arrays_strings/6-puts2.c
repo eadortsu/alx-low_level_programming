@@ -1,25 +1,23 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* puts2 - prints every other character of a string,
-* starting with the first character, followed by a new line
-* @str: pointer character variable
-*/
+ * puts2 - entry point
+ *
+ * @str: Entry pointer
+ */
 void puts2(char *str)
 {
-int i;
-int len = 0;
-char *s = str;
+	int i;
 
-while (*s != '\0')
-{
-len++;
-s++;
-}
+	i = 0;
 
-for (i = 0; str[i] != '\0' && i < len; i += 2)
-{
-_putchar(str[i]);
-}
-_putchar('\n');
+	while (str[i] != '\0')
+	{
+		if (i % 2 == 0)
+		{
+			_putchar(str[i]);
+		}
+		i++;
+	}
+	_putchar('\n');
 }

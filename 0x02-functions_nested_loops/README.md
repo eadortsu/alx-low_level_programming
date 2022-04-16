@@ -1,2 +1,3 @@
-# 0x02-functions_nested_loops
-This is a repo about functions and nested loops predominantly in C programming language
+# 0x002. C- Functions, nestes loops
+In this project will learn some concepts about functions and some
+loops advanced.

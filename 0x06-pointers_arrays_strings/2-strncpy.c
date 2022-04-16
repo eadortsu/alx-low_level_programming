@@ -1,22 +1,20 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-* _strncpy - function that copies a string
-* @dest: character pointer variable
-* @src: character pointer variable
-* @n: integer variable
-* Return: string copied
-*/
+ * _strncpy - entry
+ * @dest: entry pointer
+ * @src: entry pointer
+ * @n: entry length
+ * Return: dest modified
+ */
 char *_strncpy(char *dest, char *src, int n)
 {
-int i;
+	int i;
 
-for (i = 0; i < n && src[i] != '\0'; i++)
-{
-dest[i] = src[i];
-}
-for (; i < n; i++)
-dest[i] = '\0';
+	for (i = 0; i < n && src[i] != '\0' ; i++)
+		dest[i] = src[i];
+	for (; i < n; i++)
+		dest[i] = '\0';
 
-return (dest);
+	return (dest);
 }
