@@ -1,26 +1,33 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdlib.h>
 
 /**
- * array_range - entry point
- * @min: start of range
- * @max: end of range
- * Return: ptr with values
- */
+ * array_range - array that contains numbers
+ * from min to max.
+ *
+ * @min: first number.
+ * @max: last number.
+ * Return: pointer to array.
+ **/
+
 int *array_range(int min, int max)
 {
-	int i = 0, len_arr = 0;
-	int *ptr;
+	int i, nb_elements, nb;
+	int *tab;
 
 	if (min > max)
 		return (NULL);
-	len_arr = max - min;
-	ptr = (int *) malloc((len_arr + 1) * sizeof(int));
-	if (ptr == NULL)
+
+	nb_elements = max - min + 1;
+	tab = malloc(sizeof(int) * nb_elements);
+	if (tab == NULL)
 		return (NULL);
-	for (i = 0; min <= max; i++, min++)
+	nb = min;
+	for (i = 0; i < nb_elements; i++)
 	{
-		ptr[i] = min;
+		tab[i] = nb;
+		nb++;
 	}
-	return (ptr);
+
+	return (tab);
 }

@@ -1,12 +1,12 @@
 #include "function_pointers.h"
-
 /**
- * print_name - entry piint from main
- * @name: String of name
- * @f:	Entry to another function
+ * print_name - prints a name.
+ * @name: name to print
+ * @f: fi=unctu=ion used
+ * Rteurn void
  */
-void print_name(char *name, void (*f)(char *n))
+void print_name(char *name, void (*f)(char *))
 {
-	if (name != NULL && f != NULL)
-		f(name);
+if (f != NULL && name != NULL)
+f(name);
 }

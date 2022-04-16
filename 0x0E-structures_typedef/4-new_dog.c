@@ -1,35 +1,51 @@
 #include "dog.h"
 #include <stdlib.h>
-
 /**
- * new_dog - entry point
- * @name: string from main, name of pet
- * @age: number from main, age of pet
- * @owner: string from main, owner of pet
- * Return: p
- */
+ * copy - Copy a string.
+ * @x: String address (destination).
+ * @y: String address (source).
+ * Return: String address.
+ **/
+char *copy(char *x, char *y)
+{
+	int i;
+
+	for (i = 0; y[i] != '\0'; i++)
+		x[i] = y[i];
+	x[i] = '\0';
+	return (x);
+}
+/**
+ * new_dog - Create a new dog.
+ * @name: String address.
+ * @age: Float.
+ * @owner: String address.
+ * Return: Address of new dog.
+ **/
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *p;
-	/* reserving memory to struct*/
-	p = malloc(sizeof(dog_t));
-	if (p == NULL)
+	dog_t *str;
+
+	str = malloc(sizeof(dog_t));
+	if (str == NULL)
 		return (NULL);
-	/* Cpunting name pointer*/
-	if (name == NULL)
+
+	str->name = malloc(sizeof(name) + 1);
+	if (str->name == NULL)
 	{
-		free(p);
-		free(owner);
+		free(str);
 		return (NULL);
 	}
-	if (owner == NULL)
+
+	str->owner = malloc(sizeof(owner) + 1);
+	if (str->owner == NULL)
 	{
-		free(p);
-		free(name);
-		return (NULL);
+		free(str->name);
+		free(str);
 	}
-	p->name = name;
-	p->age = age;
-	p->owner = owner;
-	return (p);
+	str->age = age;
+	str->name = (copy(str->name, name));
+	str->owner = (copy(str->owner, owner));
+	return (str);
 }

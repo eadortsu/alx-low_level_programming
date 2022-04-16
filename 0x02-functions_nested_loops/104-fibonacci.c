@@ -1,25 +1,41 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - print fibonacci
  *
- * Return:  Always 0 (Success)
+ * Return: always 0
  */
 int main(void)
 {
-	double a, b, c; 
-	int i;
+	unsigned long int a, a1, a2, b, b1, b2, c, c1, c2, d, e;
 
-	a = 0;
-	b = 1;
-	c = 0;
+	a = 1;
+	b = 2;
+	c = a + b;
 
-	for (i = 0; i < 98; i++)
+	printf("%lu, ", a);
+	printf("%lu, ", b);
+	for (d = 3; d < 89; d++)
 	{
-		c = a + b;
+		printf("%lu, ", c);
 		a = b;
 		b = c;
-		printf("%.lf\n", c);
+		c = a + b;
 	}
+	b1 = b / 1000000000;
+	b2 = b % 1000000000;
+	c1 = c / 1000000000;
+	c2 = c % 1000000000;
+	for (e = 89; e < 98; e++)
+	{
+		printf("%lu%lu, ", c1, c2);
+		a1 = b1;
+		a2 = b2;
+		b1 = c1;
+		b2 = c2;
+		c1 = a1 + b1 + ((a2 + b2) / 1000000000);
+		c2 = (a2 + b2) % 1000000000;
+	}
+printf("%lu%lu\n", c1, c2);
 	return (0);
 }

@@ -1,45 +1,33 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+
 /**
- * main - entry point
- * @argc: arguments number
- * @argv: double pointer to arguments
- * Return: O for success
- */
+ * main - Perform an operation on 2 numbers.
+ * @argc: Number of arguments.
+ * @argv: Arguments vector.
+ * Return: 0 (success).
+ **/
+
 int main(int argc, char *argv[])
 {
-	/* Variables for the two entry numbers */
-	int num1 = 0, num2 = 0, calc = 0;
-	/* If arguments is wrong */
-	if (argc < 4)
+	int a, b, res;
+	int (*f)(int, int);
+
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	/* convert arguments to numbers */
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-
-	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	f = get_op_func(argv[2]);
+	if (f == NULL)
 	{
 		printf("Error\n");
-		exit(100);
+		exit(99);
 	}
-	switch (argv[2][0])
-	{
-		case '+':
-		case '-':
-		case '*':
-		case '/':
-		case '%':
-			calc = (*get_op_func(argv[2]))(num1, num2);
-			printf("%d\n", calc);
-		break;
-		default:
-			printf("Error\n");
-			exit(99);
-	}
-	/* Print operation */
+	res = f(a, b);
+	printf("%d\n", res);
 	return (0);
 }

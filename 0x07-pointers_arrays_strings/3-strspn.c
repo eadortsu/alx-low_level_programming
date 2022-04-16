@@ -1,26 +1,22 @@
 #include "holberton.h"
-#include <stddef.h>
 /**
- * _strspn - entry point
- * @s: entry pointer
- * @accept: array for comparing
- * Return: if there is not any equal is 0
+ * _strspn - gets lengthof a prefix substring
+ * @s: string to check
+ * @accept: string to check against
+ *
+ * Return: number of bytes of s in accept
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
-	int i = 0, j;
-
-	unsigned int n = 0;
-
-	while (s[i] != ' ' && s[i])
-	{
-		for (j = 0; accept[j] != '\0'; j++)
-		{
-			if (s[i] == accept[j])
-				n++;
-		}
-		i++;
-	}
-	return (n);
+int i, k, counter = 0;
+for (i = 0; s[i] != '\0'; i++)
+if (counter != i)
+break;
+for (k = 0; accept[k] != '\0'; k++)
+{
+if (s[i] == accept[k])
+counter++;
+}
+}
+return (counter);
 }

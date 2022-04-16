@@ -1,27 +1,26 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - print fibonacci
  *
- * Return:  Always 0 (Success)
+ * Return: always 0
  */
 int main(void)
 {
-	unsigned long long a, b, c, i;
+	unsigned int a, b, c, d, s;
 
-	a = 0;
-	b = 1;
-	c = 0;
-
-	for (i = 0; i <= 98; i++)
+	a = 1;
+	b = 2;
+	c = 3;
+	s = 2;
+	for (d = 2; d <= 32; d++)
 	{
-		if (i % 2 == 0 && c <= 4000000)
-		{
-			c = a + b;
-			a = b;
-			b = c;
-			printf("%llu\n", c);
-		}
+		if (c % 2 == 0)
+			s = s + c;
+		a = b;
+		b = c;
+		c = a + b;
 	}
+	printf("%u\n", s);
 	return (0);
 }

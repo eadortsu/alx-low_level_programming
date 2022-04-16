@@ -1,27 +1,18 @@
 #include "holberton.h"
 
 /**
- * _isalpha - Function
- * @c: Varible type integer
- * Return: value of rtn variable
+ * _isalpha - define is a character is alphabetic.
+ * @c: the character to be tested.
+ * Return: - 1 if c is an alphabet 0 if not.
  */
-int _isalpha(int c)
+int  _isalpha(int c)
 {
-	int lower, upper, rtn = 0;
-
-	for (lower = 'a'; lower <= 'z'; lower++)
-	{
-		if (c == lower)
-		{
-			rtn = 1;
-		}
-	}
-	for (upper = 'A'; upper <= 'Z'; upper++)
-	{
-		if (c == upper)
-		{
-			rtn = 1;
-		}
-	}
-	return (rtn);
+if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90))
+{
+return (1);
+}
+else
+{
+return (0);
+}
 }

@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * add - Entry point
- * @a: Integer variable
- * @b: Integer variable
- * Return: opeartion between a plus b
+ * add - a function that returns sum of two int.
+ *@a: first int.
+ *@b: second int.
+ * Return: a+b.
  */
 int add(int a, int b)
 {
-	return (a + b);
+return (a + b);
 }

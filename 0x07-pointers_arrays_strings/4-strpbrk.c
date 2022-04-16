@@ -1,25 +1,23 @@
 #include "holberton.h"
-
 /**
- * _strpbrk -entry point
- * @s: pointer entry
- * @accept: array to compare
- * Return: equal characters
+ * _strpbrk - searches a string for any of a set of bytes.
+ * @s: first string
+ * @accept: 2nd string.
+ * Return: 0
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int i = 0, j;
+	unsigned int i, j;
 
-	while (s[i] != '\0')
+	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; accept[j] != '\0'; j++)
+		for (j = 0; accept[j]; j++)
 		{
 			if (s[i] == accept[j])
-			{
-				return (s + i);
-			}
+				break;
 		}
-		i++;
+		if (accept[j])
+			return (s + i);
 	}
-	return ('\0');
+	return (0);
 }

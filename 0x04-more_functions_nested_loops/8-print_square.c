@@ -1,30 +1,24 @@
 #include "holberton.h"
-
 /**
- * print_square - Entry point
- * @size: size of draw
+ *print_square - prints a square of #.
+ *@size:  reffers the size of # square
  */
-
 void print_square(int size)
 {
-	/* @i: number of rows */
-	int i;
-	/* @j: number of column */
-	int j;
-
-	if (size <= 0)
-	{
-		_putchar('\n');
-	}
-	else
-	{
-		for (i = 0; i <= size - 1; i++)
-		{
-			for (j = 0; j < size ; j++)
-			{
-				_putchar('#');
-			}
-			_putchar('\n');
-		}
-	}
+int i, j;
+if (size <= 0)
+{
+_putchar('\n');
+}
+else
+{
+for (i = 0; i < size; i++)
+{
+for (j = 0; j < size; j++)
+{
+_putchar(35);
+}
+_putchar('\n');
+}
+}
 }

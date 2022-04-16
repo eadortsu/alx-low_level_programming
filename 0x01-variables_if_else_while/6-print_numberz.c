@@ -1,16 +1,16 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Count from 0 to 9 using putchar .
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-int n;
-for (n = 48; n < 58; n++)
+int i;
+for (i = 48; i < 58; i++)
 {
-putchar(n);
+putchar(i);
 }
 putchar('\n');
 return (0);

@@ -1,27 +1,28 @@
 #include "holberton.h"
 
 /**
- * rot13 - Entry point
- * @rt: Entry pointer
- * Return: codificated string in rot13
+ *rot13 - encoding a string using rot13.
+ *@s: the string to be encoded to rot13.
+ *Return: the string s encoded to rot13.
  */
-char *rot13(char *rt)
-{
-	int i = 0, j;
-	char rI[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rO[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (rt[i])
-	{
-		for (j = 0; rI[j] != '\0'; j++)
-		{
-			if (rt[i] == rI[j])
-			{
-				rt[i] = rO[j];
-				break;
-			}
-		}
-		i++;
-	}
-	return (rt);
+char *rot13(char *s)
+{
+int i = 0, j = 0;
+char string_rot13[] = "NnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMm";
+char string_alpha[] = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+while (s[i] != '\0')
+{
+do {
+if (s[i] == string_alpha[j])
+{
+s[i] = string_rot13[j];
+break;
+}
+j++;
+} while (string_alpha[j] != '\0');
+j = 0;
+i++;
+}
+return (s);
 }

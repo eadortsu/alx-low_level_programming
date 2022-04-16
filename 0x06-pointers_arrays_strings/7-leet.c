@@ -1,26 +1,23 @@
 #include "holberton.h"
 /**
- * leet - Entry point
- * @l: Entry pointer
- * Return: A variable 'l' modified.
+ * *leet - encoder func
+ * @s:given string
+ * *Return: the encoded string.
  */
-char *leet(char *l)
+char *leet(char *s)
 {
-	int i = 0, j;
-	char l1[] = "aeotl";
-	char l2[] = "AEOTL";
-	char l3[] = "43071";
-
-	while (l[i] != '\0')
-	{
-		for (j = 0; l1[j] != '\0'; j++)
-		{
-			if (l[i] == l1[j] || l[i] == l2[j])
-			{
-				l[i] = l3[j];
-			}
-		}
-		i++;
-	}
-	return (l);
+int i = 0, j = 0;
+char array_leet[] = {'4', '3', '1', '0', '7'};
+char array_up[] = {'A', 'E', 'L', 'O', 'T'};
+char array_low[] = {'a', 'e', 'l', 'o', 't'};
+while (s[i] != '\0')
+{
+for (j = 0; j < 5; j++)
+{
+if (s[i] == array_low[j] || s[i] == array_up[j])
+s[i] = array_leet[j];
+}
+i++;
+}
+return (s);
 }

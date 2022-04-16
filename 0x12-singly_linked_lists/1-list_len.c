@@ -1,18 +1,20 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
- * list_len - entry point
- *	@h: get list
- * Return: quantity nodes
+ * list_len - a function that prints all the elements of a list
+ * @h:pointer to first node
+ * Return: number of nodes in the list
  */
 size_t list_len(const list_t *h)
 {
-	size_t n_nodes = 0;
-
-	while (h != NULL)
-	{
-		h = h->next;
-		n_nodes++;
-	}
-	return (n_nodes);
+const list_t *temp;
+unsigned int count = 0;
+temp = h;
+while (temp)
+{
+if (temp->str != NULL)
+count++;
+temp = temp->next;
+}
+return (count);
 }

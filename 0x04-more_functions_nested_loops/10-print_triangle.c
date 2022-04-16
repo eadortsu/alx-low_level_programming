@@ -1,34 +1,32 @@
 #include "holberton.h"
 
 /**
- * print_triangle - Entry point
- * @size: Entry variabale
+ * print_triangle - print a triangle using " " and "#"
+ *@size: height of the triangle
+ *
  */
 
 void print_triangle(int size)
 {
-	int i, j;
+	int i, j, n;
 
-	if (size <= 0)
-	{
-		_putchar('\n');
-	}
-	else
-	{
-		for (i = 1; i <= size; i++)
-		{
-			for (j = 1; j <= size; j++)
-			{
-				if (j != size && j <= size - i)
-				{
-					_putchar(' ');
-				}
-				else
-				{
-					_putchar('#');
-				}
-			}
-			_putchar('\n');
-		}
-	}
+if (size > 0)
+{
+for (n = 1; n <= size; n++)
+{
+for (i = size - n; i > 0; i--)
+{
+_putchar(' ');
+}
+for (j = 1; j <= n; j++)
+{
+_putchar('#');
+}
+_putchar('\n');
+}
+}
+else
+{
+_putchar('\n');
+}
 }

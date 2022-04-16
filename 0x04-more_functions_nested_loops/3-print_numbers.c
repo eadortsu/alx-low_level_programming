@@ -1,17 +1,14 @@
 #include "holberton.h"
-
 /**
- * print_numbers - Entry point
- *
+ *print_numbers - prints from 0to 9.
  */
 void print_numbers(void)
 {
-	/* @i: Incremment ASCII charanter */
-	char i;
-
-	for (i = '0'; i <= '9'; i++)
-	{
-		_putchar(i);
-	}
-	_putchar('\n');
+int i;
+for (i = 0; i < 10; i++)
+{
+_putchar(i + '0');
 }
+_putchar('\n');
+}
+

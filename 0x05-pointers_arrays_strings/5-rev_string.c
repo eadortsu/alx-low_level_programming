@@ -1,28 +1,26 @@
 #include "holberton.h"
-
 /**
- * rev_string - Entry point
- * @s:  Entry pointer
+ * rev_string - prints a string in rev.
+ * @s:the sting to be rev.
  */
 void rev_string(char *s)
 {
-	int i, j, count;
-	char arr[1000];
+int i, j;
+int count;
+char v1, v2;
 
-	i = 0;
-
-	while (s[i] != '\0')
-	{
-		arr[i] = s[i];
-		i++;
-	}
-	count  = i - 1;
-	j = 0;
-	while (count >= 0)
-	{
-		s[j] = arr[count];
-		s[j + 1] = '\0';
-		count--;
-		j++;
-	}
+for (count = 0; s[count] != '\0'; count++)
+{
+}
+j = count - 1;
+i = 0;
+while (j > i)
+{
+v1 = s[i];
+v2 = s[j];
+s[i] = v2;
+s [j] = v1;
+j--;
+i++;
+}
 }

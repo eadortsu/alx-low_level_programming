@@ -1,19 +1,18 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
-  * print_dlistint - Print a double list
-  * @h:	current double list
-  * Return: Quantity elements in the double list
-  */
+* print_dlistint - print all the elements of a dlistint_t list
+* @h: pointer to the star of the linked list
+*Return: number pf nodes
+*/
 size_t print_dlistint(const dlistint_t *h)
 {
-	size_t n_nodes = 0;
+	size_t i;
 
-	while (h != NULL)
+	for (i = 0; h != NULL; i++)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
-		n_nodes++;
 	}
-	return (n_nodes);
+	return (i);
 }

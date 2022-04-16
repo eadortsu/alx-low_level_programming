@@ -1,19 +1,17 @@
 #include "holberton.h"
-
 /**
- * _strlen - Entry point
- * @s: Entry pointer type character
- * Return: count print the lenght of string
+ * _strlen - calculates the lengh of a string.
+ * @s: the string to be dispayed
+ * Return: the lengh of string.
  */
 int _strlen(char *s)
 {
-	int i, count;
+int i;
+int count = 0;
 
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	count = i;
-
-	return (count);
+for (i = 0; s[i] != '\0'; i++)
+{
+count++;
+}
+return (count);
 }

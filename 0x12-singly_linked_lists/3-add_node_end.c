@@ -1,39 +1,53 @@
+#include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
- * add_node_end - entry oint
- * @head:	list nodes
- * @str:	string entry
- * Return:	new_node into list
+ * _strlen - finds the length of a string
+ * @str: string to find the length of
+ *
+ * Return: length of string
  */
+unsigned int _strlen(char *str)
+{
+	unsigned int i;
 
+	for (i = 0; str[i]; i++)
+		;
+	return (i);
+}
+
+/**
+ * add_node_end - adds a new node to the end of linked list
+ * @head: double pointer to a linked list
+ * @str: string to add to the new node
+ *
+ * Return: pointer to the new node
+ */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	int i = 0;
-	list_t  *new_node, *last_node;
-
-	last_node = (*head);
-
-	new_node = (list_t *) malloc(sizeof(list_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	while (str[i])
-		i++;
-
-	new_node->str = strdup(str);
-	new_node->len = i;
-	new_node->next = NULL;
-
-	if ((*head) == NULL)
-	{
-		(*head) = new_node;
-		return ((*head));
-	}
-
-	while (last_node->next != NULL)
-		last_node = last_node->next;
-
-	last_node->next = new_node;
-	return (last_node);
+list_t *new, *tmp;
+if (str == NULL)
+return (NULL);
+new = malloc(sizeof(list_t));
+if (new == NULL)
+return (NULL);
+new->str = strdup(str);
+if (new->str == NULL)
+{
+free(new);
+return (NULL);
+}
+new->len = _strlen(new->str);
+new->next = NULL;
+if (*head == NULL)
+{
+*head = new;
+return (new);
+}
+tmp = *head;
+while (tmp->next)
+tmp = tmp->next;
+tmp->next = new;
+return (new);
 }

@@ -1,12 +1,10 @@
 #include "holberton.h"
-
 /**
- * reset_to_98 - Entry point
- * @n: pointer entry
- */
+ * reset_to_98 - updates the value to 98
+ * @n: the number to modify.
+*/
 void reset_to_98(int *n)
 {
-	int **ptr = &n;
-
-	**ptr = 98;
+*n = 98;
 }
+

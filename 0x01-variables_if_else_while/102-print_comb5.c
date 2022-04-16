@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 /**
@@ -7,29 +8,21 @@
  */
 int main(void)
 {
-int a, b, c, d;
-for (a = 48; a < 58; a++)
+int i, j;
+
+for (i = 0; i < 100 ; i++)
 {
-for (b = 48; b < 58; b++)
+for (j = i + 1; j < 100 ; j++)
 {
-for (c = 48; c < 58; c++)
-{
-for (d = 48; d < 58; d++)
-{
-if (a != c && c > a || b != d && d > b)
-{
-putchar(a);
-putchar(b);
+putchar(i / 10 + '0');
+putchar(i % 10 + '0');
 putchar(' ');
-putchar(c);
-putchar(d);
-if (a != 57 || b != 56 || c != 57 || d != 57)
+putchar(j / 10 + '0');
+putchar(j % 10 + '0');
+if (!((i == 98) && (j == 99)))
 {
 putchar(',');
 putchar(' ');
-}
-}
-}
 }
 }
 }

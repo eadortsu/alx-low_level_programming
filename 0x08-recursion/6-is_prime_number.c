@@ -1,25 +1,29 @@
 #include "holberton.h"
-
 /**
- * is_prime_number - entry point
- * @n: entry variable
- * Return: 0 if it isn't prime or 1 if it is.
+ * prime_check - checks to see if number is prime
+ * @f: factor check
+ * @p: possible prime number
+ *
+ * Return: 1 if prime, 0 if not
+ */
+int prime_check(int f, int p)
+{
+if (p < 2 || p % f == 0)
+return (0);
+else if (f > p / 2)
+return (1);
+else
+return (prime_check(f + 1, p));
+}
+/**
+ * is_prime_number - states if number is prime
+ * @n: number to check
+ *
+ * Return: 1 if prime, 0 if not
  */
 int is_prime_number(int n)
 {
-	int tmp = 0;
-
-	if (n == 1)
-	{
-		tmp = 0;
-		return (1);
-	}
-	if (is_prime_number(n - 1) % 1 + is_prime_number(n - 1))
-	{
-		tmp++;
-	}
-	if (a != 2)
-		return (0);
-	else
-		return (1);
+if (n == 2)
+return (1);
+return (prime_check(2, n));
 }

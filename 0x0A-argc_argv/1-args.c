@@ -1,23 +1,13 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
- * main - entry point
- * @argc:  count arguments
- * @argv: arguments
- * Return: Always 0 (Success)
+ * main - function prints the number of args
+ * @argc: number of arguments passed to the function
+ * @argv: argument vector of pointers to strings
+ * Return: 0.
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[]__attribute__((unused)))
 {
-	int n = 0;
-
-	if (*(*argv + 1) == '\0')
-	{
-		printf("%d\n", n);
-	}
-	else
-	{
-		n = argc - 1;
-		printf("%d\n",  n);
-	}
-	return (0);
+printf("argc = %d\n", argc - 1);
+return (0);
 }

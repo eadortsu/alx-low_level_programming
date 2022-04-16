@@ -1,14 +1,13 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
- * set_string - entry point
- * @s: entry pointer
- * @to: entry pointer
+ * set_string - sets the value of a pointer to a char
+ * @s: pointer to change
+ * @to: string to change pointer to
+ *
+ * Return: void
  */
 void set_string(char **s, char *to)
 {
-	s = &to;
-
-	printf("%s %s\n", (*s), to);
+*s = to;
 }

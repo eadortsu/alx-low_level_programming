@@ -1,26 +1,19 @@
 #include "holberton.h"
 
 /**
- * print_last_digit - main function
- * @n: Entry variable
- * Return: variable mod return value
+ * print_last_digit - check the code for Holberton School students.
+	*
+ * @n: number to use.
+	*
+ * Return: the last digit of a number .
  */
 int print_last_digit(int n)
 {
-	int mod;
-	char num;
-
-	if (n < 0)
-	{
-		mod = (n % 10) * (-1);
-		num = (mod + '0');
-		_putchar(num);
-	}
-	else
-	{
-		mod = n % 10;
-		num = (mod + '0');
-		_putchar(num);
-	}
-	return (mod);
+n = n % 10;
+if (n < 0)
+{
+n = n * -1;
+}
+_putchar(n + '0');
+return (n);
 }

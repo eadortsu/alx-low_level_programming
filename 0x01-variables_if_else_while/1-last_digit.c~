@@ -1,0 +1,16 @@
+#include <stdlib.h>
+#include <time.h>
+/* more headers goes there */
+
+/* betty style doc for function main goes there */
+int main(void)
+{
+  int n,lastdigit;
+
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	/* your code goes there */
+	lastdigit = n % 10;
+	printf(" \n The Last Digit of a Given Number %d =  %d", n, lastdigit);
+	return (0);
+}

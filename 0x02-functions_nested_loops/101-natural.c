@@ -1,21 +1,29 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - natural numbers multiples of 3 or 5 to 1024
  *
- * Return: ALways 0 (Success)
+ * Return: always 0
  */
+
 int main(void)
 {
-	int a,  mul, sum;
+	int s, t, f, tm, fm;
 
-	for (a = 0; a < 1024; a++)
+	s = 0;
+	for (t = 0; t <= (1024 / 3); t++)
 	{
-		if ((a % 3) == 0 || (a % 5) == 0)
+		tm = 3 * t;
+		s = s + tm;
+	}
+	for (f = 0; f <= (1024 / 5); f++)
+	{
+		if (!(f % 3 == 0))
 		{
-			sum += a;
+			fm = 5 * f;
+			s = s + fm;
 		}
 	}
-	printf("%d\n", sum);
+	printf("%i\n", s);
 	return (0);
 }

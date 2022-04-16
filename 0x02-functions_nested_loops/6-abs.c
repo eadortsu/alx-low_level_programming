@@ -1,18 +1,16 @@
+
 #include "holberton.h"
 
 /**
- * _abs - Function
- * @a: Entry variable
- * Return: variable a according condition false or true
+ * _abs - write the absolute value of an number .
+ * @n: the number to be tested.
+ * Return: (abs (n)).
  */
-int _abs(int a)
+int  _abs(int n)
 {
-	if (a <= 0)
-	{
-		return (a * -1);
-	}
-	else
-	{
-		return (a);
-	}
+if (n < 0)
+{
+n = n * -1;
+}
+return (n);
 }

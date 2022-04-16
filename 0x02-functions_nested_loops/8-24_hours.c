@@ -1,35 +1,24 @@
 #include "holberton.h"
 
 /**
- * jack_bauer - Entry point
+ * jack_bauer - define is a character is alphabetic
+ *
+ * Return: - (void)
  */
 void jack_bauer(void)
 {
-	int a, b, c, d;
+int h, m;
 
-	for (a = '0'; a <= '2'; a++)
-	{
-		for (b = '0'; b <= '9'; b++)
-		{
-			if (a != '2' || b != '4')
-			{
-				for (c = '0'; c <= '5'; c++)
-				{
-					for (d = '0'; d <= '9'; d++)
-					{
-						_putchar(a);
-						_putchar(b);
-						_putchar(':');
-						_putchar(c);
-						_putchar(d);
-						_putchar('\n');
-					}
-				}
-			}
-			else
-			{
-				break;
-			}
-		}
-	}
+for (h = 0; h <= 23; h++)
+{
+for (m = 0; m <= 59; m++)
+{
+_putchar((h / 10) + '0');
+_putchar((h % 10) + '0');
+_putchar(':');
+_putchar((m / 10) + '0');
+_putchar((m % 10) + '0');
+_putchar('\n');
+}
+}
 }

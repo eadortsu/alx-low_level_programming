@@ -1,53 +1,49 @@
 #include "holberton.h"
+
 /**
- * times_table - Entry point
- */
+	* print_times_table - print the n times table, starting with 0.
+	* @n:the number .
+	* Return: (void) .
+**/
 void print_times_table(int n)
 {
-	int a, b, c, d1, d2, d3;
+int i, j, r;
 
-	if (n >= 0 && n <= 15)
-	{
-	for (a = 0; a <= n; a++)
-	{
-		for (b = 0; b <= n; b++)
-		{
-		c = a * b;
-
-		if (c >= 0 && c <= 9)
-		{
-			if (b != 0 && c >= 0)
-				_putchar(' '), _putchar(' '), _putchar(' ');
-			_putchar(c + '0');
-		}
-		else
-		{
-		if (c >= 10 && c <= 99)
-		{
-		if (c >= 10)
-		{
-			_putchar(' '), _putchar(' ');
-		}
-		d1 = (c / 10), 	_putchar(d1 + '0');
-		d2 = (c % 10), 	_putchar(d2 + '0');
-		}
-		else
-		{
-		if (c >= 100)
-		{
-			_putchar(' ');
-		}
-		d1 = (c / 100), _putchar(d1 + '0');
-		d2 = ((c / 10) % 10), _putchar(d2 + '0');
-		d3 = (c % 10), _putchar(d3 + '0');
-		}
-		}
-		if (b != n)
-		{
-			_putchar(',');
-		}
-		}
-		_putchar('\n');
-		}
-	}
+if (((n <= 15) && (n >= 0)))
+{
+for (i = 0; i <= n; i++)
+{
+for (j = 0; j <= n; j++)
+{
+r = i * j;
+if ((r > 9) && (r < 100))
+{
+_putchar((r / 10) + '0');
+_putchar((r % 10) + '0');
 }
+else if (r < 10)
+{
+_putchar(r + '0');
+}
+else
+{
+_putchar((r / 100) + '0');
+_putchar(((r / 10) % 10) + '0');
+_putchar((r % 10) + '0');
+}
+if (j < n)
+{
+_putchar(',');
+if ((i * (j + 1)) < 100 && (i * (j + 1)) >= 10)
+{
+_putchar(' ');
+_putchar(' ');
+}
+else if ((i * (j + 1)) >= 100)
+_putchar(' ');
+else
+{
+_putchar(' ');
+_putchar(' ');
+_putchar(' ');	}	}	}
+_putchar('\n');	}	}	}

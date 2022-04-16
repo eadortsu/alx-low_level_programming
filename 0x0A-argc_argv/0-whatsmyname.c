@@ -1,17 +1,13 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
- * main - entry point
- * @argc: number of arguments
- * @argv: double pointer
- * Return: Always 0 (Success)
- */
-int main(int argc, char **argv)
+* main - function to print program name
+*  @argc: number of command line arguments
+*  @argv: counts elements of compilation
+*  Return: 0
+*/
+int main(int argc __attribute__((unused)), char *argv[])
 {
-	int i = 0;
-
-	i = argc;
-
-	printf("%s\n", argv[i - 1]);
-	return (0);
+printf("%s\n", argv[0]);
+return (0);
 }

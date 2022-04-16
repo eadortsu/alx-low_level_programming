@@ -1,29 +1,36 @@
-#include <stdio.h>
+#include<stdio.h>
 
 /**
- * main - Entry point
+ *main - print comb4.
  *
- * Return:  Always 0 (Success)
+ *Return: 0 (success)
  */
+
 int main(void)
 {
-int a, b, c;
+int i;
+int j;
+int k;
 
-for (a = 48; a < 58; a++)
+for (i = 48; i < 58; i++)
 {
-for (b = a; b < 58; b++)
+for (j = 48; j < 58; j++)
 {
-for (c = b; c < 58; c++)
+for (k = 48; k < 58; k++)
 {
-if (a != b && b != c && a < b && b < c)
+if (i != j && i != k && j < k && i < j)
 {
-putchar(a);
-putchar(b);
-putchar(c);
-if (a != 55 || b != 56 || c != 57)
+putchar(i);
+putchar(j);
+putchar(k);
+if (i == 7)
 {
-putchar(',');
-putchar(' ');
+break;
+}
+if (!(i == 55 && j == 56 && k == 57))
+{
+putchar(44);
+putchar(32);
 }
 }
 }

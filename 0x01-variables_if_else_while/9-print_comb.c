@@ -1,20 +1,22 @@
-#include <stdio.h>
+#include<stdio.h>
 
 /**
- * main - Entry point
+ *main - print all possible combinations of single-digit numbers
  *
- * Return: Always 0 (Success)
+ *Return: 0 (success)
  */
+
 int main(void)
 {
-int num;
-for (num = 48; num < 58; num++)
+int i;
+
+for (i = 48; i < 58; i++)
 {
-putchar(num);
-if (num != 57)
+putchar(i);
+if (i < 57)
 {
-putchar(',');
-putchar(' ');
+putchar(44);
+putchar(32);
 }
 }
 putchar('\n');

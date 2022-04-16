@@ -1,24 +1,25 @@
-#include <stdio.h>
+#include<stdio.h>
 
 /**
- * main - Entry point
+ *main - print the numbers from 00 to 99.
  *
- * Return: Always 0 (Success)
+ *Return: 0 (success)
  */
+
 int main(void)
 {
-int a;
-int b;
-for (a = 48; a <= 57; a++)
+int i;
+int j;
+for (i = 48; i < 58; i++)
 {
-for (b = 48; b <= 57; b++)
+for (j = 48; j < 58; j++)
 {
-putchar(a);
-putchar(b);
-if (a != 57 || b != 57)
+putchar(i);
+putchar(j);
+if (!(i == 57 && j == 57))
 {
-putchar(',');
-putchar(' ');
+putchar(44);
+putchar(32);
 }
 }
 }

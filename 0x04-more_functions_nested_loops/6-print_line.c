@@ -1,24 +1,17 @@
 #include "holberton.h"
-
 /**
- * print_line - Entry point
- * @n: count a number times that need to print '_'
+ *print_line - print _ *n.
+ *
+ *@n: number of times printing n.
  */
 void print_line(int n)
 {
-	/* @i: store repeating time */
-	int i;
-
-	if (n <= 0)
-	{
-		_putchar('\n');
-	}
-	else
-	{
-		for (i = 0; i < n; i++)
-		{
-			_putchar('_');
-		}
-		_putchar('\n');
-	}
+int i;
+i = 0;
+while (n > 0 && i < n)
+{
+_putchar(95);
+i++;
+}
+_putchar('\n');
 }

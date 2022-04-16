@@ -1,23 +1,20 @@
 #include "holberton.h"
-
 /**
- * print_rev -  Entry point
- * @s: Entry pointer
+ * print_rev - a function to print a string in rev
+ * @s: the rev string.
  */
 void print_rev(char *s)
 {
-	int i, count;
+int i = 0;
+int count;
 
-	while (*(s + i) != '\0')
-	{
-		i++;
-	}
 
-	count = i - 1;
-
-	for (i = count; i >= 0; i--)
-	{
-		_putchar(*(s + i));
-	}
-	_putchar('\n');
+for (count = 0; s[count] != '\0'; count++)
+{
+}
+for (i = count - 1; i >= 0; i--)
+{
+_putchar (s[i]);
+}
+_putchar('\n');
 }

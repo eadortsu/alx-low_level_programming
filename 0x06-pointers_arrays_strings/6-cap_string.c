@@ -1,34 +1,40 @@
 #include "holberton.h"
-
 /**
- * cap_string - entry point
- * @cap: entry pointer array
- * Return: Cap with change
+ * *cap_string - capitalize first letter of each word in string.
+ * @s:given string.
  */
-char *cap_string(char *cap)
+char *cap_string(char *s)
 {
-	int i, j;
-	char car[] = "}\n,;\t.!?\"(){ ";
-
-	i = 0;
-
-	while (cap[i] != '\0')
+    int i, j;
+    
+	char a[] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\n', '\t', ' '};
+	
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (cap[i + 1] >= 97 && cap[i + 1] <= 122)
+		
+		if (i == 0)
 		{
-			if (i == 0)
+			if ((s[i] >= 'a' && s[i] <= 'z'))
+				s[i] = s[i] - 32; 
+			continue; 
+		}
+		if (s[i - 1] == a[j])
+		{
+			
+			j++;
+			
+			if (s[i] >= 'a' && s[i] <= 'z')
 			{
-				cap[i] -= 32;
-			}
-			for (j = 0; car[j] != '\0'; j++)
-			{
-				if (cap[i] == car[j])
-				{
-					cap[i + 1] -= 32;
-				}
+				s[i] = s[i] - 32; 
+				continue; 
 			}
 		}
-		i++;
+		else
+		{
+			
+			if(s[i] >= 'A' && s[i] <= 'Z')
+				s[i] = s[i] + 32; 
+		}
 	}
-	return (cap);
+	return(s);
 }

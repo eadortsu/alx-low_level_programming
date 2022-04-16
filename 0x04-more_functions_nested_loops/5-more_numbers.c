@@ -1,32 +1,29 @@
 #include "holberton.h"
 
 /**
- * more_numbers - Entry point
+ * more_numbers - prints 01234567891011121314\n x10
+ *
+ * Return: void
  */
+
+
 void more_numbers(void)
 {
-	int i, d1, d2;
+	char a, b, c, i;
 
-	i = 0;
-	while (i < 10)
+	for (i = 0; i < 10; i++)
 	{
-		for (d1 = '0'; d1 <= '1'; d1++)
+		for (c = 0; c <= 14; c++)
 		{
-			for (d2 = '0'; d2 <= '9'; d2++)
+			if (c < 10)
+				b = c;
+			else
 			{
-				if (d1 != '0')
-				{
-					_putchar(d1);
-				}
-				_putchar(d2);
-				if (d1 == '1' && d2 == '4')
-				{
-					break;
-				}
+				a = c / 10; b = c % 10;
+				_putchar('0' + a);
 			}
+			_putchar('0' + b);
 		}
-		i++;
 		_putchar('\n');
 	}
-
 }

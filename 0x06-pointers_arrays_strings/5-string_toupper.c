@@ -1,24 +1,18 @@
 #include "holberton.h"
-
 /**
- * string_toupper - entry point
- * @l: entry pointer
- * Return:  variable l that contain the array
+ * *string_toupper - converts lowercase to uppercase
+ * @s:given string.
+ * Return: s modified.
  */
-char *string_toupper(char *l)
+char *string_toupper(char *s)
 {
-	int i = 0;
-	char tmp;
-
-	while (l[i] != '\0')
-	{
-		if (l[i] >= 97 && l[i] <= 122)
-		{
-			tmp = l[i] - 32;
-			l[i] = tmp;
-		}
-		i++;
-	}
-	return (l);
-
+int i = 0;
+for (; s[i] != '\0'; i++)
+{
+if (s[i] > 96 && s[i] < 123)
+{
+s[i] -= 32;
+}
+}
+return (s);
 }

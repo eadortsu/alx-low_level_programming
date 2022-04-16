@@ -1,25 +1,27 @@
+#include <stdarg.h>
 #include "variadic_functions.h"
+#include <stdio.h>
 
 /**
- * print_numbers - entry point
- * @separator: get character colon
- * @n: arguments quantity
- */
+ * print_numbers - Prints numbers.
+ * @separator: Separator between numbers.
+ * @n: Number of arguments.
+ **/
+
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
-	unsigned int count;
+	unsigned int i = 0;
+	int number;
 
 	va_start(args, n);
-	for (count = 0; count < n; count++)
+	for (; i < n ; i++)
 	{
-		printf("%d", va_arg(args, int));
-		if (separator != NULL)
-		{
-			if (count < n - 1)
-				printf("%s", separator);
-		}
+		number = va_arg(args, int);
+		printf("%d", number);
+		if (separator && i < n - 1)
+			printf("%s", separator);
 	}
-	putchar('\n');
+	printf("\n");
 	va_end(args);
 }

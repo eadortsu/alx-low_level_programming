@@ -1,17 +1,17 @@
 #include <stdio.h>
 
 /**
- * main -Entry point
+ * main -  Prints all the alphabets in lowercase.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-int a;
-for (a = 97; a < 123; a++)
+int i;
+for (i = 97; i < 123; i++)
 {
-putchar(a);
+putchar(i);
 }
-putchar('\n');
+putchar ('\n');
 return (0);
 }

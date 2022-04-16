@@ -1,34 +1,28 @@
 #include "holberton.h"
-
 /**
- * calc - entry point
- * @n: entry number
- * @i: entry number times
- * Return: calc to _sqrt_recursion
+ * sqrt_check - checks for the square root of c
+ * @g:guess at sqrt
+ * @c: number to find sqrt of
+ *
+ * Return: -1 or sqrt of c
  */
-int calc(int  n, int  i)
+int sqrt_check(int g, int c)
 {
-	if (i * i == (n))
-	{
-		return (i);
-	}
-	else if (i > (n / 2))
-	{
-		return (-1);
-	}
-	else
-	{
-		return (calc(n, i + 1));
-	}
+if (g * g == c)
+return (g);
+if (g * g > c)
+return (-1);
+return (sqrt_check(g + 1, c));
 }
 /**
- * _sqrt_recursion - entry point
- * @n: entry variable
- * Return: square of n
+ * _sqrt_recursion - returns the natural square root of a number
+ * @n: integer to find sqrt of
+ *
+ * Return: natural square root or -1
  */
 int _sqrt_recursion(int n)
 {
-	int i = 1;
-
-	return (calc(n, i));
+if (n == 0)
+return (0);
+return (sqrt_check(1, n));
 }

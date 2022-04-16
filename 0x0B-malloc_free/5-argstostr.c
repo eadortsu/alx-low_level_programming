@@ -1,40 +1,39 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
- * argstostr - entry point
- * @ac: numbers of arguments
- * @av: pointer of each argument
- * Return: a pointer of all arguments concatenated
+ *argstostr - concatinate strings into a single one.
+ *@ac: number of arguments.
+ *@av: pointer to arguments vector.
+ *Return: pointer to string.
  */
+
 char *argstostr(int ac, char **av)
 {
-	int i, x, y = 0, st = 0;
-	char *ar;
+	char *str;
+	int i, j, T_length = 0;
 
-	if (ac == 0 || av == NULL)
+	if (av == NULL || ac == 0)
 		return (NULL);
 
 	for (i = 0; i < ac; i++)
-	{
-		for (x = 0; av[i][x]; x++)
-			y++;
-	}
-	st = ac + y;
-	ar = (char *) malloc((st + 1) * sizeof(char));
-	if (ar == NULL)
-		return (0);
-	y = 0;
+		for (j = 0; av[i][j]; j++)
+			T_length++;
 
+	str = malloc(sizeof(char) * T_length + ac + 1);
+	if (str == NULL)
+		return (NULL);
+	T_length = 0;
 	for (i = 0; i < ac; i++)
 	{
-		for (x = 0; av[i][x]; x++, y++)
+		for (j = 0; av[i][j]; j++)
 		{
-			ar[y] = av[i][x];
-			ar[y + 1] = '\0';
+			str[T_length] = av[i][j];
+			T_length++;
 		}
-		ar[y++] = '\n';
+		str[T_length] = '\n';
+		T_length++;
 	}
-	return (ar);
+	str[T_length] = '\0';
+	return (str);
 }
