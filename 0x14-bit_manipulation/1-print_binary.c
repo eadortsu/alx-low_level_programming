@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * print_binary - entry point
  * @n: entry number to convert
@@ -33,3 +33,4 @@ void print_binary(unsigned long int n)
 	else
 		_putchar('0');
 }
+
