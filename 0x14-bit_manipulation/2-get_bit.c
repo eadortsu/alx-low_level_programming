@@ -1,53 +1,21 @@
 #include "main.h"
+
 /**
- * get_bit- entry point
- * @n: entry number to convert
- * @index: position to search
- * Return: value of position
+ * get_bit - returns the value of a bit at a given index.
+ * @n: number to check bits in
+ * @index: index at which to check bit
+ *
+ * Return: value of the bit, or -1 if there is an error
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int mask = 0x8000;
-	unsigned int i = 0, count = 0;
-	int num[1024],  value = 0;
+	unsigned long int divisor, check;
 
-	mask = mask_bin(n);
-
-	while (mask != 0)
-	{
-		if ((n & mask) == 0)
-			num[i] = 0;
-		else
-			num[i] = 1;
-		mask >>= 1;
-		i++;
-	}
-	count = i - 1;
-	if (index > count)
-		value = -1;
-	else
-		value = num[count - index];
-	return (value);
+	if (index > (sizeof(unsigned long int) * 8 - 1))
+		return (-1);
+	divisor = 1 << index;
+	check = n & divisor;
+	if (check == divisor)
+		return (1);
+	return (0);
 }
-/**
- * mask_bin - entry point
- * @n: number to know the bits
- * Return: length bits
- */
-int mask_bin(unsigned long int n)
-{
-	unsigned long int mask = 0x8000;
-	int up = 0;
-
-	while (mask != 0)
-	{
-		if ((n & mask) > 0)
-		{
-			up = n & mask;
-			break;
-		}
-		mask >>= 1;
-	}
-	return (up);
-}
-
