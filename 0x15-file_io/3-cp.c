@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * main - entry point
@@ -89,3 +89,4 @@ void free_buf(char *buf)
 	if (buf != NULL)
 		free(buf);
 }
+
